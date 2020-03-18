@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Header from "./Header";
 
 const Content = () => {
   const [photo, setPhoto] = useState([]);
@@ -15,7 +16,11 @@ const Content = () => {
       });
   }, []);
 
-  return <div className='App'></div>;
+  return (
+    <div className='App'>
+      <Header />
+    </div>
+  );
 };
 
 export default Content;
