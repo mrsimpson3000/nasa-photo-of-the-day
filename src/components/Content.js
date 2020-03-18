@@ -9,7 +9,7 @@ const Content = () => {
     axios
       .get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
       .then(response => {
-        // console.log(response);
+        console.log(response);
         setInfo(response.data);
       })
       .catch(error => {
@@ -19,7 +19,11 @@ const Content = () => {
 
   return (
     <div className='App'>
-      <Header date={info.date} />
+      <Header date={info.date} title={info.title} />
+      <div className='photo-width'>
+        <img src={info.url} alt='NASA Photo Of The Day' />
+        <p>{info.explanation}</p>
+      </div>
     </div>
   );
 };
