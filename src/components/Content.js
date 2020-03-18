@@ -3,22 +3,23 @@ import axios from "axios";
 import Header from "./Header";
 
 const Content = () => {
-  const [photo, setPhoto] = useState([]);
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
     axios
       .get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
       .then(response => {
-        console.log(response);
+        // console.log(response);
+        setInfo(response.data);
       })
       .catch(error => {
-        // console.log(error);
+        console.log(error);
       });
   }, []);
 
   return (
     <div className='App'>
-      <Header />
+      <Header date={info.date} />
     </div>
   );
 };
