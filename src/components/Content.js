@@ -6,16 +6,22 @@ import styled from "styled-components";
 const ContentWidth = styled.div`
   width: 80%;
   padding-left: 10%;
-  text-align: justify;
 `;
 
 const FooterStyles = styled.div`
   text-align: right;
 `;
 
+const ParagraphStyles = styled.div`
+  text-align: justify;
+`;
+
 const PhotoStyles = styled.div`
   max-width: 100%;
   height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: unset;
 `;
 
 const Content = () => {
@@ -40,8 +46,9 @@ const Content = () => {
         <PhotoStyles>
           <img src={info.url} alt={info.title} />
         </PhotoStyles>
-
-        <p>{info.explanation}</p>
+        <ParagraphStyles>
+          <p>{info.explanation}</p>
+        </ParagraphStyles>
         <hr />
         <FooterStyles>
           <p>A photo by {info.copyright}</p>
