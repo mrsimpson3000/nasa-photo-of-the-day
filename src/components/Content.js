@@ -23,6 +23,8 @@ const Content = () => {
       <div className='photo-width'>
         <img src={info.url} alt='NASA Photo Of The Day' />
         <p>{info.explanation}</p>
+        <hr />
+        <p>A photo by {info.copyright}</p>
       </div>
     </div>
   );
