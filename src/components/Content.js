@@ -1,6 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./Header";
+import styled from "styled-components";
+
+const ContentWidth = styled.div`
+  width: 80%;
+  padding-left: 10%;
+  text-align: justify;
+`;
+
+const FooterStyles = styled.div`
+  text-align: right;
+`;
+
+const PhotoStyles = styled.div`
+  max-width: 100%;
+  height: auto;
+`;
 
 const Content = () => {
   const [info, setInfo] = useState([]);
@@ -20,12 +36,17 @@ const Content = () => {
   return (
     <div className='App'>
       <Header date={info.date} title={info.title} />
-      <div className='photo-width'>
-        <img src={info.url} alt='NASA Photo Of The Day' />
+      <ContentWidth>
+        <PhotoStyles>
+          <img src={info.url} alt={info.title} />
+        </PhotoStyles>
+
         <p>{info.explanation}</p>
         <hr />
-        <p>A photo by {info.copyright}</p>
-      </div>
+        <FooterStyles>
+          <p>A photo by {info.copyright}</p>
+        </FooterStyles>
+      </ContentWidth>
     </div>
   );
 };
